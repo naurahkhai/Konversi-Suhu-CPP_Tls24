@@ -1,0 +1,107 @@
+#include <iostream>
+#include <iomanip> // Library tambahan untuk format output
+using namespace std;
+
+// Fungsi untuk konversi Celcius ke Fahrenheit
+void celciusToFahrenheit(float celcius) {
+    float fahrenheit = (celcius * 9/5) + 32;
+    cout << fixed << setprecision(2) << celcius << " Celcius = " << fahrenheit << " Fahrenheit" << endl;
+}
+
+// Fungsi untuk konversi Fahrenheit ke Celcius
+void fahrenheitToCelcius(float fahrenheit) {
+    float celcius = (fahrenheit - 32) * 5/9;
+    cout << fixed << setprecision(2) << fahrenheit << " Fahrenheit = " << celcius << " Celcius" << endl;
+}
+
+// Fungsi untuk konversi Celcius ke Kelvin
+void celciusToKelvin(float celcius) {
+    float kelvin = celcius + 273.15;
+    cout << fixed << setprecision(2) << celcius << " Celcius = " << kelvin << " Kelvin" << endl;
+}
+
+// Fungsi untuk konversi Kelvin ke Celcius
+void kelvinToCelcius(float kelvin) {
+    float celcius = kelvin - 273.15;
+    cout << fixed << setprecision(2) << kelvin << " Kelvin = " << celcius << " Celcius" << endl;
+}
+
+// Fungsi untuk konversi Fahrenheit ke Kelvin
+void fahrenheitToKelvin(float fahrenheit) {
+    float kelvin = (fahrenheit - 32) * 5/9 + 273.15;
+    cout << fixed << setprecision(2) << fahrenheit << " Fahrenheit = " << kelvin << " Kelvin" << endl;
+}
+
+// Fungsi untuk konversi Kelvin ke Fahrenheit
+void kelvinToFahrenheit(float kelvin) {
+    float fahrenheit = (kelvin - 273.15) * 9/5 + 32;
+    cout << fixed << setprecision(2) << kelvin << " Kelvin = " << fahrenheit << " Fahrenheit" << endl;
+}
+
+int main() {
+    char repeat; // Variabel untuk menampung input pengulangan
+    
+    // Do-while loop untuk menjalankan program berulang kali jika diinginkan pengguna
+    do {
+        int choice;
+        float temperature;
+
+        // Menu untuk memilih konversi suhu
+        cout << "Program Konversi Suhu" << endl;
+        cout << "Pilih opsi: " << endl;
+        cout << "1. Celcius ke Fahrenheit" << endl;
+        cout << "2. Fahrenheit ke Celcius" << endl;
+        cout << "3. Celcius ke Kelvin" << endl;
+        cout << "4. Kelvin ke Celcius" << endl;
+        cout << "5. Fahrenheit ke Kelvin" << endl;
+        cout << "6. Kelvin ke Fahrenheit" << endl;
+        cout << "Masukkan pilihan Anda: ";
+        cin >> choice;
+
+        // Switch case untuk menjalankan konversi berdasarkan pilihan pengguna
+        switch (choice) {
+            case 1:
+                cout << "Masukkan suhu dalam Celcius: ";
+                cin >> temperature;
+                celciusToFahrenheit(temperature);
+                break;
+            case 2:
+                cout << "Masukkan suhu dalam Fahrenheit: ";
+                cin >> temperature;
+                fahrenheitToCelcius(temperature);
+                break;
+            case 3:
+                cout << "Masukkan suhu dalam Celcius: ";
+                cin >> temperature;
+                celciusToKelvin(temperature);
+                break;
+            case 4:
+                cout << "Masukkan suhu dalam Kelvin: ";
+                cin >> temperature;
+                kelvinToCelcius(temperature);
+                break;
+            case 5:
+                cout << "Masukkan suhu dalam Fahrenheit: ";
+                cin >> temperature;
+                fahrenheitToKelvin(temperature);
+                break;
+            case 6:
+                cout << "Masukkan suhu dalam Kelvin: ";
+                cin >> temperature;
+                kelvinToFahrenheit(temperature);
+                break;
+            default:
+                cout << "Pilihan tidak valid." << endl;
+        }
+
+        // Menanyakan apakah pengguna ingin mengonversi lagi
+        cout << "Apakah Anda ingin mengonversi lagi? (Y/y untuk ya, T/t untuk tidak): ";
+        cin >> repeat;
+        cout << endl;
+
+    } while (repeat != 'T' && repeat != 't'); // Pengulangan jika input bukan 'T' atau 't'
+
+    cout << "Terima kasih telah menggunakan program konversi suhu." << endl;
+
+    return 0;
+}
